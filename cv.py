@@ -1,5 +1,6 @@
 import cv2
 import csv
+import math
 import os
 import matplotlib.pyplot as plt
 import numpy as np
@@ -55,6 +56,14 @@ for i in range(len(image_files)):
         (128, 128, 128),
         2,
         cv2.LINE_AA,
+    )
+
+    cv2.arrowedLine(
+        result,
+        (112, 167),
+        (int(112 + 50 * math.sin(-label[1])), int(167 - 50 * math.cos(-label[1]))),
+        (128, 128, 128),
+        2,
     )
 
     out.write(result)
